@@ -10,6 +10,8 @@ class MetaSingleton(type):
 class ConfigSingleton(metaclass=MetaSingleton):
     # Google
     G_SCOPES = ['https://www.googleapis.com/auth/drive']
-    G_SERVICE_ACCOUNT_FILE = './GoogleCloud/sheetsconverter-438022-dbe9934c7a3b.json'
+    G_SERVICE_ACCOUNT_FILE = './sheetsconverter-438022-dbe9934c7a3b.json'
     # Yandex
-    Y_OAuth = "y0_AgAAAABpmRHMAAyYtAAAAAEUIT4rAAA9-BucjP1BArrFAuAKsxVIiw6iwA"
+    Y_CLIENT_ID = '3542ffc72e2c4e9f8a1ff379081ed5a5'
+    # go to https://oauth.yandex.ru/authorize?response_type=token&client_id=<Y_CLIENT_ID> and past received code here
+    Y_OAuth = ""
