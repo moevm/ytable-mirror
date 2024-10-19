@@ -16,4 +16,4 @@ Table id can be taken from its url in `/d/---/` `https://docs.google.com/spreads
 Yandex path is the path where the file will be written, start any path with `/` symbol
 
 ## Run program
-`python main.py file.txt`
+`python main.py example.txt`
