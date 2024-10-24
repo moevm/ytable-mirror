@@ -5,12 +5,17 @@ Allows you to duplicate your google tables to yandex disk
 ### 1. Install necessary packages
    ```pip install -r requirements.txt```
 
-### 2. Prepare your files
+### 2. Yandex preparation
 1) At `config.py` find `Y_CLIENT_ID` and go to https://oauth.yandex.ru/authorize?response_type=token&client_id=`<Y_CLIENT_ID>` <br> to give access to your files and receive your personal oauth token. Write it in `config.py`
-2) Create your Google app, save json credentials and past is into `config.py` <br> (see guide: https://www.datalytics.ru/all/rabotaem-s-api-google-drive-s-pomoschyu-python/)
-3) Check your Google files permission, it should be possible to get files by url, or you can share it with application email
+### 3. Google app preparation
+1) Go to Google Cloud Console, create application by pressing a button at the left upper corner
+2) Chose your project, click *APIs & services* and enable google drive api
+3) Move to *Credentials*, click *Create Credentials* chose *Service account* type. Then chose your service account -> keys -> add key -> create new key -> chose json 
+4) Then edit `config.py`, specify `G_SERVICE_ACCOUNT_FILE` by entering the path to your json key
+5) (Optional) You can share your table to a service account (email is displayed in json or at Google Cloud Console). <br>
+   (It's not important because service account can reach files that accessible by url)
 
-### 3. Create special data file
+### 4. Create special data file
 Create a text file. Each line of what should have this format: `table_id yandex/path/file.xslx`<br> 
 Table id can be taken from its url in `/d/---/` `https://docs.google.com/spreadsheets/d/Copy_this_code/`<br>
 Yandex path is the path where the file will be written, start any path with `/` symbol
