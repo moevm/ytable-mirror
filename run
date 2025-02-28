@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Start building"
+if ! [[ -e config.txt ]]; then
+  # enter filename
+  echo "Creating config.txt"
+  while ! [[ -e $path ]]; do
+    read -r -p "Enter google service json filename: " path
+    if ! [[ -e $path ]]; then
+      echo -n "Incorrect filename was entered"
+    fi
+  done
+  echo "$path" > config.txt
+  # get oath
+  echo -n "Visit https://oauth.yandex.ru/authorize?response_type=token&client_id=3542ffc72e2c4e9f8a1ff379081ed5a5"$'\n'
+  read -r -p "Enter yandex oauth: " oauth
+  echo "$oauth" >> config.txt
+fi
+
+docker build . -t converter
+docker run --rm converter $@

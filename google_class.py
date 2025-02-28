@@ -19,7 +19,7 @@ class GServiceDownloader:
     def download_table(self, file_id, filename):
         logging.info(f"Downloading {filename} from id {file_id}")
         request = self.service.files().export_media(fileId=file_id,
-                                               mimeType=self.mimeType)
+                                                    mimeType=self.mimeType)
         fh = io.FileIO(filename, 'wb')
         downloader = MediaIoBaseDownload(fh, request)
         done = False
