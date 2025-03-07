@@ -19,9 +19,3 @@ class ConfigSingleton(metaclass=MetaSingleton):
     Y_CLIENT_ID = '3542ffc72e2c4e9f8a1ff379081ed5a5'
     # go to https://oauth.yandex.ru/authorize?response_type=token&client_id=<Y_CLIENT_ID> and past received code here
     Y_OAuth = None
-
-    def extend_from_confing_file(self, file="./config.txt"):
-        assert os.path.isfile(file), "There is no config file found!"
-        f = open(file, 'r').readlines()
-        self.G_SERVICE_ACCOUNT_FILE = f[0][:-1]
-        self.Y_OAuth = f[1][:-1]

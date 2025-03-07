@@ -1,10 +1,9 @@
-ARG BASE_IMAGE="python:3.10"
-FROM ${BASE_IMAGE}
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y python3
+FROM "python:3.10"
 
-WORKDIR /
-COPY . .
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
+COPY ./app/* /app/
+COPY ./files/* /app/
 
 ENTRYPOINT ["python3", "main.py"]
